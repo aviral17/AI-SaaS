@@ -1,0 +1,3 @@
+Link ------> https://nextjs.org/docs/app/building-your-application/routing/route-groups
+
+For exammple ---> Inside app folder, we have (dashboard) -> route ---> page.tsx  So the route will be localhost:3000/route  as page.tsx of next js is same as index.tsx of react

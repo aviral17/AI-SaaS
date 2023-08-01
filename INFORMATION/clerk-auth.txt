@@ -1,0 +1,27 @@
+A) visit -----> clerk.com  and  then signup 
+B) NOTE: To use .env, --> we can't use .env.local for -- Prisma so we will create .env  and Continue in DOCs  and follow the instructions to install the dependencies and ignore the env instructions as we are already done with
+
+C) NOTE: We are using app router and not Pages as its new version of Next Js so follow app router here
+
+D) Inside layout.tsx, update as per app router, and also create middlware.ts and paste the following code there
+
+E) Add sign-in and sign-up folder as per the format by clerk,  We added them in (auth)/(route) for our purposes and after that sign-up/[[...sign-up]]/page.tsx -OR- app/sign-in/[[...sign-in]]/page.tsx
+
+F) Inside .env file,  We added /dashboard for after signin/signup as we dont want them to be at landing page, instead want to land them at dashboard page after authentication,  / lands at landing page when the user is not signed-in or signed-up
+
+-------------------===========================---------------------------=======================================---------------------------------=============================----
+
+A) Use this inside middleware.ts ({ public.... }) --------> publicRoutes: ["/"],
+
+B) We used layout.tsx inside (auth) but in line with (routes) and inside (routes) we have signin/signup, so layout.tsx will wrap any children inside it although (routes) is outside of layout.tsx and at the same level of layout.tsx file   but still layout.tsx will be main file layout inside (auth) folder,     
+
+      We clearly know that some of the file names like page.tsx, layout.tsx, etc are reserved in NEXT JS 13
+
+-------------------===========================---------------------------=======================================---------------------------------=============================----
+
+A) NOTE: For changing styles/names of Sign/Signup Modal, We can simply visit Cleark Dashboard and change things, like to change name like Signin to continue to {{xyzzz}}, we can visit BRANDING section of Cleark Dashboard and change the name from there
+  
+   TIP: Once Signin/Signup, We will be redirected to the page described in NOTE: .env --- file, here we mentioned both env variables =  /dashboard, so it will redirect to 
+   
+   ===---===---> localhost:3000/dashboard
+

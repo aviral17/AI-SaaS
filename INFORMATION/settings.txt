@@ -1,0 +1,12 @@
+In the Settings of App,  once you click `Manage Subscription`, you might get Error like this --------------->  
+
+decline_code: undefined,
+  payment_intent: undefined,
+  payment_method: undefined,
+  payment_method_type: undefined,
+  setup_intent: undefined,
+  source: undefined
+}
+[STRIPE_ERROR] StripeInvalidRequestError: You can’t create a portal session in test mode until you save your customer portal settings in test mode at https://dashboard.stripe.com/test/settings/billing/portal.
+
+So do visit this above link or visit Stripe website (BLUE color Stripe website and not that Green Development one) and search for customer portal and Activate it for `test mode`

@@ -1,0 +1,10 @@
+A) Visit Stripe.com site  and sign-in and then create new stripe payment account above HOME Navbar, I have kept it as `ai-saas`
+B) Go to Developers and Api keys navbar,  and then below you gonna find `Secret Key` ----> Reveal Secret Key and copy this key  and paste it in `.env` file
+
+C) Now go to terminal and run ---> npm i stripe
+
+D) Inside lib folder create `stripe.ts` file
+
+---------------------------------------------------------
+
+For routing of Stripe ----> create new folder `stripe` inside api folder and create route.ts

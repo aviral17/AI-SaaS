@@ -1,0 +1,64 @@
+As we are using process.env.WEBHOOKS.....  in stripe route.ts,  We need this env variable by visiting Stripe Website and then Developers --------> Webhooks section -------> 
+
+A) For Development Environment -------> Test in a local environment 
+
+b) For Production --------> Add an Endpoint
+
+-------------------------------------------------------------------------
+
+#**NOTE: Don't forget to add ` "/api/webhook" ` in publicRoutes in middleware.ts file, TODO: We have done so as our STRIPE `Webhook` is separate from out Application, its a 3rd party integration
+
+Follow the instructions ---
+
+A) Download the CLI -------> And ADD `PATH` of stripe.exe  to the env variable, I have added in both the PATH (up and down)  I unzipped to downloads folder and added path of the stripe.exe of the Downloads folder
+
+Then follow all the commands like stripe login, etc ............., Open new terminal and run the commands
+
+NOTE: You cannot run `stripe login` directly,  instead you visit the folder where you have stripe.exe file,  then run `stripe login`   and you will get something like this .......
+
+/**/*/*/*/*/
+
+Your pairing code is: clever-gain-likes-tempt
+This pairing code verifies your authentication with Stripe.
+Press Enter to open the browser or visit https://dashboard.stripe.com/stripecli/confirm_auth?t=P5puaoumkporguXWOzpPrJskJ
+
+/*/**/*/*/*/*/
+
+Press Enter in cmd and it will open the Tab in browser, where you can see the same pairing code ---> and Allow Access,  and after that you will see `cmd` terminal and it will say something like this ----------------->  
+
+/*/*/*/*/*/*/*/*
+
+ Done! The Stripe CLI is configured for ai-saas with account id acct_1MpmW5...YQ1B3..
+
+Please note: this key will expire after 90 days, at which point you'll need to re-authenticate.
+
+/*/*/*/*/*/*
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+B) After this, you gonna see `Completed` under the 'stripe login' command
+After running the 2nd command in the same command prompt terminal with location same as stripe.exe, in this case its Downloads, you will get something like this -------->  
+
+/*/*/*//*/*/*//*/*/*
+
+#****NOTE: ****TODO: Please note this carefully, Here, you dont need to use localhost:4242, instead its localhost:3000/api/webhook, as in middleware.ts, along with "/", we also 
+added "/api/webhook" as WEBHOOK of Stripe is 3rd party integration and there is no direct linkage with the app, so we used this also, and inside /api/webhook, we have our route.ts which handling all the Webhook process
+
+And so now we can see the `SUBSCRIPTION` of that user inside PlanetScale also by visiting `localhost:5555`
+
+--------------------------------------------------------------------
+<<<### stripe listen --forward-to localhost:3000/api/webhook ###>>>
+--------------------------------------------------------------------
+
+> Ready! You are using Stripe API Version [2022-11-15]. Your webhook signing secret is whsec_865214a910756af75ab04715b60a...e5aae6305a9103c70f179e699eefb103 (^C to quit)
+
+/*/*/*/*/*/*/*/*/*/*/*
+
+copy that Webhook and paste it in `.env` file --------> STRIPE_WEBHOOK_SECRET=whsec_865214a91075....19ed5ab04715b60ae5aae6305a9103c70f179e699eefb103
+
+#NOTE: That this Webhook must be running in command prompt or wherever you are running.... Dont close this
+
+#####
+########
+
+After Successful Payment, check the Stripe cli in command prompt from where you used the `listen` command of stripe.exe,  It must give [200] POST success 

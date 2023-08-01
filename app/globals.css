@@ -2,26 +2,135 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  height: 100%;
+
+  background: url("../public/bg31.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-@media (prefers-color-scheme: dark) {
+video {
+  /* outline: 3px solid rgb(62, 25, 138); */
+  /* outline: 1.5px solid rgb(129, 107, 173); */
+  /* outline: 1.5px solid rgb(0, 0, 0); */
+  outline-offset: 1.5px;
+  border-radius: 10px;
+}
+
+.video-player video::-webkit-media-controls {
+  color: rgb(129, 27, 27) !important;
+}
+
+/* Custom Tailwind Class, creating another class for Api Limit Meter instead of changing --primary */
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+
+    --api-meter: 248 90% 66%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --ring: 217.2 32.6% 17.5%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
+
+/* ------------------------------- */
+.typewriter-blur {
+  filter: blur(5px);
+}
+
+/* ------------------------------- */
+
+/* ------------------------------- */
+
+.sidebar_modal {
+  border-top-right-radius: 45% !important;
+  border-bottom-right-radius: 45% !important;
+}
+
+/******* sheet.tsx ------------------------------------------------------- */
+
+/* Rotate the X icon by 45 degrees when data-open is true */
+[data-open="true"] .active {
+  transform: rotate(45deg);
+}
+
+/* Rotate the X icon by -45 degrees when data-open is false */
+[data-open="false"] .active {
+  transform: rotate(-45deg);
+}
+
+/* Add a transition effect for the rotation */
+.active {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* ******************** ------------------------------- ******************** */

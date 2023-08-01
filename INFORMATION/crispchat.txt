@@ -1,0 +1,5 @@
+A) Crisp Chat ---------------->  Visit crisp chat and Sign Up and then copy CRISP_WEBSITE_ID like this -----> 5a541b20-50e2-49ed-9fe0-b.....111c28
+
+B) Open terminal and install it --------> npm i crisp-sdk-web
+
+C) We have defined CrispProvider in Components folder and so provide this to app/layout.tsx like this: --------> <CrispProvider />

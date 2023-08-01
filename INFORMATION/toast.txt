@@ -1,0 +1,1 @@
+Here in Next JS, I am unable to use react-hot-toast directly, so I defined ToastProvider component in components folder and provided it in layout.tsx file of  the main project layout

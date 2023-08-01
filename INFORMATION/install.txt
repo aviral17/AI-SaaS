@@ -1,0 +1,19 @@
+Incase of we want to find any TODO or NOTE or TIP or any of our customized styles,  just go to 2nd search button of VS code side panel and just search for example ---> TODO:
+
+NOTE: Visit ------>  https://ui.shadcn.com/docs/installation/next
+
+TODO: npx create-next-app@latest ai-saas --typescript --tailwind --eslint
+
+A) 1) src/ --> No
+   2) App Router ---> yes
+   3) import alias ---> No
+
+B) 1) cd --> ai-saas   
+   2) Run the CLI -----> npx shadcn-ui@latest init
+   3) ts - yes, default , slate , app/globals.css,  yes, tailwind.config.js, @/components, @/lib/utils, yes, y
+
+
+C) Changing something in globals.css like html,body,:root and height: 100%;
+
+D) TODO: NOTE: TIP: -=-=-=-=-=-=-=-=> DON'T FORGET to ADD  `` .env `` file to gitignore as `.env.local` will be added to it by default
+ 

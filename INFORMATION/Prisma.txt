@@ -1,0 +1,58 @@
+TODO: Installation ------> A)  npm i -D prisma  B) npx prisma init
+
+TODO: A) Visit PlanetScale and signin (I used pri...hotmail for signin) and create DATABASE 
+
+B) App name = ai-saas  ----> Ready to connect to Database? --> CreatePassword --> Select Prisma from dropdown ---> Copy DATABASE_URL and paste it in `.env`
+
+C) Also copy schema.prisma from that and paste it in schema.prisma of our prisma in the project
+
+
+TODO: A) npm i @prisma/client B) Also create prismadb.ts  **NOTE: Please do install prisma client extension in VS code if not already
+
+TIP: After fully modifying schema.prisma.ts, push to prisma database -------> `npx prisma db push` and then `npx prisma generate`
+
+
+****NOTE: TODO: Everytime we modify our schema.prisma, we ahve to push it to the database and also use another command for generate `npx prisma generate` 
+
+C) npx prisma studio  and also create file `constants.ts` in ROOT folder
+
+
+*=*=*=*=*=*=**=*=*=*=*=*=*=*=*=**=*=*=*=*=*=*=*******************************==========================****************************================================
+
+TODO:NOTE:TIP: ****Remember for any API Limit type services, RUN ``npx prisma studio``
+
+ WE can change the API limit by changing in constants.ts the MAX_COUNT or via Prisma Studio  by using command ``npx prisma studio``
+
+
+*=*=*=*=*=*=**=*=*=*=*=*=*=*=*=**=*=*=*=*=*=*=*******************************==========================****************************================================
+
+
+TODO: Everytime we change/update prisma, Run ---------> a) npx prisma generate b) npx prisma db push (pushing to planetscale) c) npx prisma studio (if we want) d) npm run dev 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
