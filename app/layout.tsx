@@ -1,9 +1,12 @@
 import "./globals.css";
+
+import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ModalProvider } from "@/components/modal-provider";
 import { ToasterProvider } from "@/components/toaster-provider";
+// import { Providers } from "./providers";
 import { CrispProvider } from "@/components/crisp-provider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,6 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    // <Providers>
     <ClerkProvider>
       <html lang="en">
         <CrispProvider />
@@ -29,5 +33,6 @@ export default function RootLayout({
         </body>
       </html>
     </ClerkProvider>
+    // </Providers>
   );
 }
