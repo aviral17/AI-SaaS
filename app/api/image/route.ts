@@ -67,8 +67,9 @@ export async function POST(req: Request) {
       "**********************************************************************************************************************************"
     );
 
-    console.log("[IMAGE_ERROR]", error?.message);
-    return new NextResponse(error?.message, {
+    // console.log("[IMAGE_ERROR]", error?.message);
+    console.log("[IMAGE_ERROR]");
+    return new NextResponse("error", {
       status: 500,
     });
   }

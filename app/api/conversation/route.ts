@@ -49,14 +49,15 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json(response.data.choices[0].message);
-  } catch (error) {
+  } catch (error: any) {
     // If you are getting status code 429 Error, it means API is not responding, it means OpenAi API not working, as I have consumed it already in my free trail and haven't renewed it again
     console.log(
       "**********************************************************************************************************************************"
     );
 
-    console.log("[CONVERSATION_ERROR]", error?.message);
-    return new NextResponse(error?.message, {
+    // console.log("[CONVERSATION_ERROR]", error?.message); use any in error:any to avoid error?.message type error
+    console.log("[CONVERSATION_ERROR]");
+    return new NextResponse("error", {
       status: 500,
     });
   }

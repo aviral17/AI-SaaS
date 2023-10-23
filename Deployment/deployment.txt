@@ -1,3 +1,7 @@
 A)) Inside package.json "scripts", add ----> "postinstall": "prisma generate"
 
 1))) Run `npm run lint` after closing all running terminal cmd
+
+2))) a) Inside Stripe developers webhooks ---> Add Endpoint  ----> paste new url like vercel url like this ----> `https://{VERCEL_URL}/api/webhook`
+
+b) Selecting the Events we are listening from webhook, check in webhook file,  1) checkout.session.completed  2) invoice.payment_succeeded  and add EndPoint
