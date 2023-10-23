@@ -63,7 +63,7 @@ export async function POST(req: Request) {
       "**********************************************************************************************************************************"
     );
 
-    console.log("[CODE_ERROR]", error?.message);
+    console.log("[CODE_ERROR]");
     return new NextResponse(error?.message, {
       status: 500,
     });
