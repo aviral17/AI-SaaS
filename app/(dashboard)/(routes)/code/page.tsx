@@ -28,17 +28,28 @@ import { Empty } from "@/components/ui/empty";
 
 import { Loader } from "@/components/loader";
 import { ChatCompletionRequestMessage } from "openai";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import ReactMarkdown from "react-markdown";
 import { useProModal } from "@/hooks/use-pro-modal";
 import { toast } from "react-hot-toast";
+import { useTheme as useNextTheme } from "next-themes";
 
 const CodePage = () => {
   const router = useRouter();
   const proModal = useProModal();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const { theme } = useNextTheme();
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.body.style.backgroundImage = 'url("/bg11.jpg")';
+    } else {
+      document.body.style.backgroundImage = 'url("/bg31.jpg")';
+    }
+  }, [theme]);
 
   // prompt is defined in this form variable, and its validation is there in constants.ts in formSchema, so we using it in <FormField name="prompt" />
   const form = useForm<z.infer<typeof formSchema>>({
@@ -82,7 +93,7 @@ const CodePage = () => {
 
   // Note that we are using Form of shadcn so we are using in the same way as stated in shadcn docs
   return (
-    <div>
+    <div className="pt-[100px] pb-10">
       <Heading
         title="Code Generation"
         description="Generate code using descriptive text."
@@ -121,7 +132,7 @@ const CodePage = () => {
                     <FormControl className="m-0 p-0 conversation">
                       {/* We used ring-transparent, as we dont want outline of input field as input field is itself in the box, surrounded by box outline, so we dont want another outline inside the box outline */}
                       <Input
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent p-4  bg-[#eff6ff]"
+                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent p-4 text-black bg-[#eff6ff]"
                         disabled={isLoading}
                         placeholder="Create Counter app using Next JS"
                         {...field}
@@ -131,7 +142,7 @@ const CodePage = () => {
                 )}
               />
               <Button
-                className="col-span-12 lg:col-span-2 w-full"
+                className="col-span-12 lg:col-span-2 w-full bg-[#000] hover:bg-[#1c1745] text-white"
                 type="submit"
                 disabled={isLoading}
                 size="icon"
@@ -157,8 +168,8 @@ const CodePage = () => {
                 className={cn(
                   "p-8 w-full flex items-start gap-x-8 rounded-lg shadow-2xl",
                   message.role === "user"
-                    ? "bg-white border border-black/10"
-                    : "bg-muted"
+                    ? "bg-white/10 dark:bg-[#21253f06] border border-black/10"
+                    : "bg-muted dark:bg-[#292a3192]"
                 )}
               >
                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
@@ -166,12 +177,15 @@ const CodePage = () => {
                 <ReactMarkdown
                   components={{
                     pre: ({ node, ...props }) => (
-                      <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
+                      <div className="overflow-auto w-full my-2 bg-black/10 dark:bg-[#0505067b] p-2 rounded-lg">
                         <pre {...props} />
                       </div>
                     ),
                     code: ({ node, ...props }) => (
-                      <code className="bg-black/10 rounded-lg p-1" {...props} />
+                      <code
+                        className="bg-black/20 dark:bg-[#000000] rounded-lg p-1"
+                        {...props}
+                      />
                     ),
                   }}
                   className="text-sm overflow-hidden leading-7"

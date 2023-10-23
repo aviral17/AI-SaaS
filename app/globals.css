@@ -2,15 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap"); /* For Testimonials Landers page */
+
 html,
 body,
 :root {
-  height: 100%;
+  /* background: url("../public/bg10.jpg"); */
+  /* background: url("../public/bg13.jpg"); */
+  /* background: url("../public/bg31.jpg"); */
+  /* background: url("../public/bg11.jpg"); */
 
-  background: url("../public/bg31.jpg");
+  /* --------------------------------------- */
+  /* height: 100vh;
+  background-image: var(--background-image);
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: auto;
+  padding-bottom: 100px; */
+
+  height: 100%;
+  background-size: cover;
+  overflow: auto;
+  /* height: 500vh; */
 }
+
+/* ----------******************************-------------------------------------- */
+
+/* --- DASHBOARD 🚀---------------------------------------------------------------------------------------------------------------------- */
+
+.card_font {
+  /* font-family: "Albert Sans", sans-serif; */
+  font-weight: 100;
+}
+
+.dashboard_effect {
+  backdrop-filter: blur(20px);
+  /* height: 100%; */
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------- */
 
 video {
   /* outline: 3px solid rgb(62, 25, 138); */
@@ -27,6 +59,8 @@ video {
 /* Custom Tailwind Class, creating another class for Api Limit Meter instead of changing --primary */
 @layer base {
   :root {
+    /* --background-image: url("../public/bg31.jpg"); */
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -42,7 +76,7 @@ video {
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* --primary: 222.2 47.4% 11.2%; */
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -62,6 +96,8 @@ video {
   }
 
   .dark {
+    /* --background-image: url("../public/bg11.jpg"); */
+
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -98,6 +134,7 @@ video {
     @apply border-border;
   }
   body {
+    /* text-foreground */
     @apply bg-background text-foreground;
   }
 }
@@ -134,3 +171,15 @@ video {
 }
 
 /* ******************** ------------------------------- ******************** */
+
+.nextjs-user-button {
+  /* Replace with your desired width and height */
+  width: 100px !important;
+  height: 500px !important;
+}
+
+/* ******************** ------------------------------- ******************** */
+
+.test_style {
+  font-family: "Nunito", sans-serif;
+}

@@ -46,10 +46,10 @@ export const SubscriptionButton = ({ isPro = false }: { isPro: boolean }) => {
 
   return (
     <Button
-      variant={isPro ? "default" : "premium"}
+      variant={isPro ? "premium" : "premium"}
       disabled={loading}
       onClick={onClick}
-      className="shadow-lg shadow-gray-700"
+      className="dark:shadow-none shadow-lg shadow-gray-700"
     >
       {isPro ? "Manage Subscription" : "Upgrade"}
       {!isPro && <Zap className="w-4 h-4 ml-2 fill-white" />}

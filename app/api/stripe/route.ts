@@ -24,6 +24,8 @@ export async function GET() {
       },
     });
 
+    // console.log("User SUBSCRIPTION of stripe ====== ", userSubscription);
+
     // ***** For already subscribed user
     if (userSubscription && userSubscription.stripeCustomerId) {
       const stripeSession = await stripe.billingPortal.sessions.create({
@@ -47,7 +49,7 @@ export async function GET() {
           price_data: {
             currency: "USD",
             product_data: {
-              name: "Genius Pro",
+              name: "SaaS",
               description: "Unlimited AI Generations",
             },
             unit_amount: 2000,
@@ -59,7 +61,7 @@ export async function GET() {
         },
       ],
 
-      // When the user puschases/subscribes/make payments, We gonna create Web Hooks to know who has taken our Paid services, we want to know about that userId, so that work is handled via metadata,  Without this, we wont be able to know the user/userId and so we will be unable to give them subscription
+      // When the user puschases/subscribes/make payments, We gonna create Web Hooks to know who has taken our Paid services, we want to know about that userId, so that work is handled via metadata,  Without this, we wont be able to know the user/userId and so we will be unable to give them subscription without knowing their userId
       metadata: {
         userId,
       },

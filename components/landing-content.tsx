@@ -10,7 +10,7 @@ const testimonials = [
     description: "This is the best application I've ever used!",
   },
   {
-    name: "Antonio",
+    name: "Aviral",
     avatar: "A",
     title: "Designer",
     description: "I use this daily for generating new photos!",
@@ -34,19 +34,22 @@ const testimonials = [
 export const LandingContent = () => {
   return (
     <div className="px-10 pb-20">
-      <h2 className="text-center text-4xl text-white font-extrabold mb-10">
+      {/* 4xl text-white */}
+      <h2 className="text-center text-5xl md:text-6xl text-gray-300  font-extrabold mb-10">
         Testimonials
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {testimonials.map((item) => (
           <Card
             key={item.description}
-            className="bg-[#192339] border-none text-white"
+            className="bg-[#192339] border-none text-white hover:shadow-sm hover:shadow-gray-500"
           >
-            <CardHeader>
+            <CardHeader className="group">
               <CardTitle className="flex items-center gap-x-2">
                 <div>
-                  <p className="text-lg">{item.name}</p>
+                  <p className="text-3xl text-purple-400 group-hover:text-purple-500 font-extralight test_style transition-all duration-100 delay-100 ease-in-out">
+                    {item.name}
+                  </p>
                   <p className="text-zinc-400 text-sm">{item.title}</p>
                 </div>
               </CardTitle>

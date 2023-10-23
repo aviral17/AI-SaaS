@@ -3,7 +3,7 @@
 import * as z from "zod";
 import axios from "axios";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Download, ImageIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -30,6 +30,7 @@ import { amountOptions, formSchema, resolutionOptions } from "./constants";
 import { cn } from "@/lib/utils";
 import { BotAvatar } from "@/components/bot-avatar";
 import { toast } from "react-hot-toast";
+import { useTheme as useNextTheme } from "next-themes";
 
 const PhotoPage = () => {
   // const proModal = useProModal();
@@ -37,6 +38,16 @@ const PhotoPage = () => {
   const proModal = useProModal();
   const [photos, setPhotos] = useState<string[]>([]);
   const [errorMessage, setErrorMessage] = useState<string>("");
+
+  const { theme } = useNextTheme();
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.body.style.backgroundImage = 'url("/bg11.jpg")';
+    } else {
+      document.body.style.backgroundImage = 'url("/bg31.jpg")';
+    }
+  }, [theme]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -72,7 +83,7 @@ const PhotoPage = () => {
   };
 
   return (
-    <div>
+    <div className="pt-[100px] pb-10">
       <Heading
         title="Image Generation"
         description="Turn your prompt into an image."
@@ -95,7 +106,7 @@ const PhotoPage = () => {
               grid
               grid-cols-12
               gap-2
-              bg-[#200dad46]
+              bg-[#3e395e46]
               shadow-md
             "
           >
@@ -105,7 +116,7 @@ const PhotoPage = () => {
                 <FormItem className="col-span-12 lg:col-span-6">
                   <FormControl className="m-0 p-0">
                     <Input
-                      className="conversation_input border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent p-4"
+                      className="conversation_input border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent p-4 text-black dark:bg-[#ffffffd5]"
                       disabled={isLoading}
                       placeholder="A Unicorn Horse on the Moon."
                       {...field}
@@ -118,7 +129,7 @@ const PhotoPage = () => {
               control={form.control}
               name="amount"
               render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-2 bg-[#bfdbfe] rounded-md">
+                <FormItem className="col-span-12 lg:col-span-2 bg-[#bfdbfe] rounded-md dark:bg-[#0b0404c7]">
                   <Select
                     disabled={isLoading}
                     onValueChange={field.onChange}
@@ -145,7 +156,7 @@ const PhotoPage = () => {
               control={form.control}
               name="resolution"
               render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-2 bg-[#bfdbfe] rounded-md">
+                <FormItem className="col-span-12 lg:col-span-2 bg-[#bfdbfe] dark:bg-[#0b0404c7] rounded-md">
                   <Select
                     disabled={isLoading}
                     onValueChange={field.onChange}
@@ -169,7 +180,7 @@ const PhotoPage = () => {
               )}
             />
             <Button
-              className="col-span-12 lg:col-span-2 w-full"
+              className="col-span-12 lg:col-span-2 w-full  bg-black hover:bg-[#2f14c8] dark:text-black dark:hover:bg-[#75b2b0] dark:bg-[#3d549f]"
               type="submit"
               disabled={isLoading}
               size="icon"

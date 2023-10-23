@@ -1,0 +1,3 @@
+A)) Inside package.json "scripts", add ----> "postinstall": "prisma generate"
+
+1))) Run `npm run lint` after closing all running terminal cmd

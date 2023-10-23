@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       return new NextResponse("User id is required", { status: 400 });
     }
 
-    // NOTE: that we are using `session?.metadata?.userId` instead of taking userId from clerk auth() as Stripe Webhook is running independently from Clerk, so using the userId of webhook inside the metadata as we defined there
+    // NOTE: that we are using `session?.metadata?.userId` instead of taking userId from clerk auth() as Stripe Webhook is running independently from Clerk, so using the userId of webhook inside the metadata as we defined there,
     await prismadb.userSubscription.create({
       data: {
         userId: session?.metadata?.userId,

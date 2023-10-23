@@ -8,24 +8,32 @@ import { cn } from "@/lib/utils";
 const Progress = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>
->(({ className, value, ...props }, ref) => (
-  <ProgressPrimitive.Root
-    ref={ref}
-    className={cn(
-      "relative h-4 w-full overflow-hidden rounded-full bg-secondary",
-      className
-    )}
-    {...props}
-  >
-    <ProgressPrimitive.Indicator
+>(({ className, value, ...props }, ref) => {
+  console.log("Value inside progress.tsx = ", value);
+
+  return (
+    <ProgressPrimitive.Root
+      ref={ref}
       className={cn(
-        "h-full w-full flex-1 transition-all",
-        value! > 40 ? "bg-yellow-600" : value! > 80 ? "bg-rose-600" : ""
+        "relative h-4 w-full overflow-hidden rounded-full bg-secondary",
+        className
       )}
-      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
-    />
-  </ProgressPrimitive.Root>
-));
+      {...props}
+    >
+      <ProgressPrimitive.Indicator
+        className={cn(
+          "h-full w-full flex-1 transition-all bg-green-500",
+          value! > 40 && value! < 80
+            ? "bg-yellow-600"
+            : value! > 80
+            ? "bg-rose-700"
+            : ""
+        )}
+        style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
+      />
+    </ProgressPrimitive.Root>
+  );
+});
 Progress.displayName = ProgressPrimitive.Root.displayName;
 
 export { Progress };

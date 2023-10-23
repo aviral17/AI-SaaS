@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useAuth } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
-import { CircularProgress } from "@nextui-org/progress";
+// import { CircularProgress } from "@nextui-org/progress";
 
 export const LandingHero = () => {
   const { isSignedIn } = useAuth();
@@ -51,7 +51,7 @@ export const LandingHero = () => {
             Start Generating For Free
           </Button>
         </Link>
-        <CircularProgress aria-label="Loading..." />
+        {/* <CircularProgress aria-label="Loading..." /> */}
       </div>
       <div className="text-zinc-400 text-xs md:text-sm font-normal">
         No credit card required.

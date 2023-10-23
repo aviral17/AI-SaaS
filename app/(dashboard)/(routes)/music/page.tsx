@@ -25,15 +25,26 @@ import { Empty } from "@/components/ui/empty";
 
 import { Loader } from "@/components/loader";
 import { ChatCompletionRequestMessage } from "openai";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useProModal } from "@/hooks/use-pro-modal";
+import { useTheme as useNextTheme } from "next-themes";
 
 const MusicPage = () => {
   const router = useRouter();
   const proModal = useProModal();
   const [music, setMusic] = useState<string>();
   const [errorMessage, setErrorMessage] = useState("");
+
+  const { theme } = useNextTheme();
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.body.style.backgroundImage = 'url("/bg11.jpg")';
+    } else {
+      document.body.style.backgroundImage = 'url("/bg31.jpg")';
+    }
+  }, [theme]);
 
   // prompt is defined in this form variable, and its validation is there in constants.ts in formSchema, so we using it in <FormField name="prompt" />
   const form = useForm<z.infer<typeof formSchema>>({
@@ -71,7 +82,7 @@ const MusicPage = () => {
 
   // Note that we are using Form of shadcn so we are using in the same way as stated in shadcn docs
   return (
-    <div>
+    <div className="pt-[100px] pb-10">
       <Heading
         title="Music Generation"
         description="Turn your prompt into music."
@@ -120,7 +131,7 @@ const MusicPage = () => {
                 )}
               />
               <Button
-                className="col-span-12 lg:col-span-2 w-full"
+                className="col-span-12 lg:col-span-2 w-full bg-[#000] hover:bg-[#3b2363] text-white"
                 type="submit"
                 disabled={isLoading}
                 size="icon"

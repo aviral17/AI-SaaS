@@ -36,7 +36,8 @@ export const FreeCounter = ({
   let percent = (apiLimitCount / MAX_FREE_COUNTS) * 100;
   let greaterThanFifty = percent > 50;
   const hundred = percent == 100;
-  // Applied "premium" variant to Butoon from ui/button.tsx
+  // Applied "premium" variant to Button from ui/button.tsx
+  // console.log("PERCENT = ", percent);
 
   return (
     <div className="px-3">
@@ -46,9 +47,9 @@ export const FreeCounter = ({
             <p>
               {apiLimitCount} / {MAX_FREE_COUNTS} Free Generations
             </p>
-            {/* text-api-meter  ${greaterThanFifty ? "text-yellow-500" : ""} */}
+            {/* text-api-meter ${greaterThanFifty ? "text-yellow-500" : ""} */}
             <Progress
-              className={`h-3`}
+              className={`h-3 bg-white`}
               // value={(apiLimitCount / MAX_FREE_COUNTS) * 100}
               value={percent}
             />

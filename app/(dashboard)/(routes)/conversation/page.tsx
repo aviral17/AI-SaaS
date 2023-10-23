@@ -26,15 +26,27 @@ import { Empty } from "@/components/ui/empty";
 
 import { Loader } from "@/components/loader";
 import { ChatCompletionRequestMessage } from "openai";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useProModal } from "@/hooks/use-pro-modal";
 import { toast } from "react-hot-toast";
+import { Switch } from "@nextui-org/react";
+import { useTheme as useNextTheme } from "next-themes";
 
 const ConversationPage = () => {
   const router = useRouter();
   const proModal = useProModal();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const { theme } = useNextTheme();
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.body.style.backgroundImage = 'url("/bg11.jpg")';
+    } else {
+      document.body.style.backgroundImage = 'url("/bg31.jpg")';
+    }
+  }, [theme]);
 
   // prompt is defined in this form variable, and its validation is there in constants.ts in formSchema, so we using it in <FormField name="prompt" />
   const form = useForm<z.infer<typeof formSchema>>({
@@ -81,7 +93,7 @@ const ConversationPage = () => {
 
   // Note that we are using Form of shadcn so we are using in the same way as stated in shadcn docs
   return (
-    <div>
+    <div className="pt-[100px] pb-10">
       <Heading
         title="Conversation"
         description="Our most advanced conversation model."
@@ -120,7 +132,7 @@ const ConversationPage = () => {
                     <FormControl className="m-0 p-0 conversation">
                       {/* We used ring-transparent, as we dont want outline of input field as input field is itself in the box, surrounded by box outline, so we dont want another outline inside the box outline */}
                       <Input
-                        className="conversation_input border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent p-4 text-green-500"
+                        className="conversation_input border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent p-4 text-black dark:bg-[#d3e4efce]"
                         disabled={isLoading}
                         placeholder="What is the value of PI?"
                         {...field}
@@ -130,7 +142,7 @@ const ConversationPage = () => {
                 )}
               />
               <Button
-                className="col-span-12 lg:col-span-2 w-full hover:bg-[#2f14c8] transition-all delay-50 duration-400 ease-in shadow-md shadow-gray-600"
+                className="col-span-12 lg:col-span-2 w-full bg-black hover:bg-[#2f14c8] dark:bg-[#349b9d] dark:hover:bg-[#4a8094]  transition-all delay-50 duration-400 ease-in  light:shadow-md shadow-gray-600"
                 type="submit"
                 disabled={isLoading}
                 size="icon"
@@ -156,7 +168,7 @@ const ConversationPage = () => {
                 className={cn(
                   "p-8 w-full flex items-start gap-x-8 rounded-lg shadow-2xl",
                   message.role === "user"
-                    ? "bg-white border border-black/10"
+                    ? "bg-white/10 dark:bg-[#21253f3b] border border-black/10"
                     : "bg-muted"
                 )}
               >

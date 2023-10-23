@@ -24,15 +24,26 @@ import { BotAvatar } from "@/components/bot-avatar";
 import { Empty } from "@/components/ui/empty";
 
 import { Loader } from "@/components/loader";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useProModal } from "@/hooks/use-pro-modal";
+import { useTheme as useNextTheme } from "next-themes";
 
 const VideoPage = () => {
   const router = useRouter();
   const proModal = useProModal();
   const [video, setVideo] = useState<string>();
   const [errorMessage, setErrorMessage] = useState<string>("");
+
+  const { theme } = useNextTheme();
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.body.style.backgroundImage = 'url("/bg11.jpg")';
+    } else {
+      document.body.style.backgroundImage = 'url("/bg31.jpg")';
+    }
+  }, [theme]);
 
   // prompt is defined in this form variable, and its validation is there in constants.ts in formSchema, so we using it in <FormField name="prompt" />
   const form = useForm<z.infer<typeof formSchema>>({
@@ -70,7 +81,7 @@ const VideoPage = () => {
 
   // Note that we are using Form of shadcn so we are using in the same way as stated in shadcn docs
   return (
-    <div>
+    <div className="pt-[100px] pb-10">
       <Heading
         title="Video Generation"
         description="Turn your prompt into video."
@@ -119,7 +130,7 @@ const VideoPage = () => {
                 )}
               />
               <Button
-                className="col-span-12 lg:col-span-2 w-full"
+                className="col-span-12 lg:col-span-2 w-full bg-[#000] text-white hover:bg-[#302060]"
                 type="submit"
                 disabled={isLoading}
                 size="icon"

@@ -25,7 +25,9 @@ export const Heading = ({
         </div>
         <div>
           {/* 3xl text size */}
-          <h2 className="text-4xl text-violet-900 font-medium">{title}</h2>
+          <h2 className="text-4xl text-violet-900 dark:text-[#a3dff7b9] font-medium">
+            {title}
+          </h2>
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
       </div>
