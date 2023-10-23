@@ -28,10 +28,10 @@ export const LandingHero = () => {
               deleteSpeed: 10,
               delay: 10,
               pauseFor: 5000,
-              preStringTyped: (arrayPos, self) => {
+              preStringTyped: (arrayPos: any, self: any) => {
                 self.el.classList.add("typewriter-blur");
               },
-              onStringTyped: (arrayPos, self) => {
+              onStringTyped: (arrayPos: any, self: any) => {
                 self.el.classList.remove("typewriter-blur");
               },
             }}
@@ -45,7 +45,7 @@ export const LandingHero = () => {
         <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
           <Button
             variant="premium"
-            radius="full"
+            // radius="full"
             className="md:text-lg p-4 md:p-6 rounded-full font-semibold"
           >
             Start Generating For Free
