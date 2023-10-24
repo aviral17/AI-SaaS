@@ -5,3 +5,10 @@ A)) Inside package.json "scripts", add ----> "postinstall": "prisma generate"
 2))) a) Inside Stripe developers webhooks ---> Add Endpoint  ----> paste new url like vercel url like this ----> `https://{VERCEL_URL}/api/webhook`
 
 b) Selecting the Events we are listening from webhook, check in webhook file,  1) checkout.session.completed  2) invoice.payment_succeeded  and add EndPoint
+
+3)) Reveal Signing Secret, copy and paste inside ENV Variables of Vercel, Find Webhook Secret and Edit and paste that secret key there
+
+
+4)) now we need to change NEXT_PUBLIC_URL from http://localhost:3000 to  https://{VERCEL_DOMAIN_URL}  note its https and in last not `/` remember that
+
+5)) Go to deployments and redeploy again
