@@ -14,3 +14,6 @@ export async function GET() {
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
+
+// localhost:3000/settings 401 unauthorized showing
+// check stripe webhooks again

@@ -1,2 +1,4 @@
 #NOTE: If by chance Prisma/PlanetScale not working,  Reset it by using command -------> a) npx prisma migrate reset b) npx prisma generate c) npx prisma db push  and then open it via d) 
 npx prisma studio
+
+#NOTE:  `prisma migrate dev --name init`  same as `npx prisma db push` to create the initial data model in your new Neon.tech PostgreSQL database1.

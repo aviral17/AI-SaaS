@@ -79,7 +79,7 @@ export const ProModal = () => {
             onClick={onSubscribe}
             size="lg"
             variant="premium"
-            className="w-full shadow-lg shadow-gray-600 transition-all ease-in-out duration-300 group"
+            className="w-full shadow-lg shadow-gray-600 dark:shadow-none transition-all ease-in-out duration-300 group"
           >
             {loading ? (
               <ReactLoading

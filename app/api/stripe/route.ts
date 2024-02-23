@@ -15,7 +15,7 @@ export async function GET() {
     const user = await currentUser();
 
     if (!userId || !user) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Unauthorized USER", { status: 401 });
     }
 
     const userSubscription = await prismadb.userSubscription.findUnique({
