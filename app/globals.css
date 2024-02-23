@@ -228,7 +228,7 @@ video {
   overflow-y: scroll;
   /* background: #000000; */
   /* background: rgba(6, 40, 61, 0.914); */
-  background: rgba(1, 66, 106, 0.914);
+  background: rgba(0, 0, 0, 0.914);
   border: 4px solid transparent;
   background-clip: content-box;
 }
