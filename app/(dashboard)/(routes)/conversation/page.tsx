@@ -42,6 +42,7 @@ const ConversationPage = () => {
 
   const { theme } = useNextTheme();
 
+  // update it as per latest changes
   useEffect(() => {
     if (theme === "dark") {
       document.body.style.backgroundImage = 'url("/bg11.jpg")';
