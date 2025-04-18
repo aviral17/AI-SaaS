@@ -51,7 +51,7 @@ const DashboardPage = () => {
   //     document.body.style.backgroundImage = 'url("/bg31.jpg")';
   //   }
   // }, [theme, mounted]);
-
+// update functions
   useEffect(() => {
     if (theme === "dark") {
       document.body.style.backgroundImage = 'url("/bg11.jpg")';
