@@ -1,4 +1,4 @@
-// updated as per latest changes
+// update as per latest changes
 
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
