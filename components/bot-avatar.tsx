@@ -1,3 +1,5 @@
+// updated as per latest changes
+
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 export const BotAvatar = () => {
