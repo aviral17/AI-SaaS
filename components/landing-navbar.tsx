@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 
 const font = Montserrat({ weight: "600", subsets: ["latin"] });
 
+// updated as per latest changes
 export const LandingNavbar = () => {
   const { isSignedIn } = useAuth();
 
