@@ -1,3 +1,5 @@
+// updated as per latest changes
+
 "use client";
 
 import { Montserrat } from "next/font/google";
