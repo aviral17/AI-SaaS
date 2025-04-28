@@ -33,6 +33,7 @@ const testimonials = [
   },
 ];
 
+// updated as per latest changes
 export const LandingContent = () => {
   return (
     <div className="px-10 pb-20">
