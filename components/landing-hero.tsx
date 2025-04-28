@@ -10,6 +10,7 @@ import { useAuth } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 // import { CircularProgress } from "@nextui-org/progress";
 
+// updated as per latest changes
 export const LandingHero = () => {
   const { isSignedIn } = useAuth();
 
