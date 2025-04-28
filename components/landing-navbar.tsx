@@ -2,6 +2,7 @@
 
 "use client";
 
+// updated as per latest changes
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
