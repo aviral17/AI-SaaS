@@ -1,4 +1,4 @@
-// update it as per latest changes
+// updated it as per latest changes
 
 import { Icon } from "lucide-react";
 
