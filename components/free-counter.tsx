@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useProModal } from "@/hooks/use-pro-modal";
 
-// update it as per latest changes
+// updated it as per latest changes
 export const FreeCounter = ({
   isPro = false,
   apiLimitCount = 0,
