@@ -1,4 +1,4 @@
-// updated it as per latest changes
+// update it as per latest changes
 
 "use client";
 
