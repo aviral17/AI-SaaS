@@ -34,7 +34,7 @@ export const FreeCounter = ({
     return null;
   }
 
-  // updated it as per latest changes
+  // update it as per latest changes
   let percent = (apiLimitCount / MAX_FREE_COUNTS) * 100;
   let greaterThanFifty = percent > 50;
   const hundred = percent == 100;
