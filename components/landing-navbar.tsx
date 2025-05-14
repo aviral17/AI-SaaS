@@ -2,7 +2,7 @@
 
 "use client";
 
-// update as per latest changes
+// updated as per latest changes
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
