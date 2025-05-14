@@ -2,7 +2,7 @@
 
 "use client";
 
-// update as per latest changes
+// updated as per latest changes
 // import Typewriter from "typewriter-effect";
 import TypewriterComponent from "typewriter-effect";
 import Link from "next/link";
